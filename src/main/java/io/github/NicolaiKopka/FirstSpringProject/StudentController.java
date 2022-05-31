@@ -1,5 +1,6 @@
 package io.github.NicolaiKopka.FirstSpringProject;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +26,7 @@ public class StudentController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public void addStudent(@RequestBody Student student) {
         studentService.addStudent(student);
     }
