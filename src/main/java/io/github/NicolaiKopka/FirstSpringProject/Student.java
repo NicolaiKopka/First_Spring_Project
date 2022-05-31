@@ -6,15 +6,10 @@ import java.util.UUID;
 public class Student {
 
     private String name;
-    private String id;
-    private String subject;
-    public List<String> associates;
+    private final String id = UUID.randomUUID().toString();
 
-    public Student(String name, String subject, List<String> associates) {
+    public Student(String name) {
         this.name = name;
-        this.id = UUID.randomUUID().toString();
-        this.subject = subject;
-        this.associates = associates;
     }
 
     public String getName() {
@@ -25,15 +20,7 @@ public class Student {
         return id;
     }
 
-    public String getSubject() {
-        return subject;
-    }
-
-    public List<String> getAssociates() {
-        return associates;
-    }
-
-    public void addAssociates(String name) {
-        this.associates.add(name);
+    public void setName(String name) {
+        this.name = name;
     }
 }
