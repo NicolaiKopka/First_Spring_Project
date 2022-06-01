@@ -1,5 +1,6 @@
 package io.github.NicolaiKopka.FirstSpringProject;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,9 +13,10 @@ import java.util.UUID;
 @RestController
 @RequestMapping("students")
 public class StudentController {
-
-    StudentService studentService = new StudentService();
-
+    StudentService studentService;
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
+    }
     @GetMapping("{id}")
     public ResponseEntity<Student> getStudents(@PathVariable String id) {
         return ResponseEntity.of(studentService.getStudent(id));

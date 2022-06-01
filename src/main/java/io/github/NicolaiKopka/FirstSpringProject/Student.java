@@ -9,14 +9,13 @@ public class Student {
 
 //    private String lastName;
 
+//    public Student() {
+//    }
 
-    public Student() {
-    }
-
-    public Student(String firstName) {
-        this.firstName = firstName;
+//    public Student(String firstName) {
+//        this.firstName = firstName;
 //        this.lastName = lastName;
-    }
+//    }
     public String getId() {
         return id;
     }
