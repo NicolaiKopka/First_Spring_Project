@@ -7,15 +7,15 @@ public class Student {
     private final String id = UUID.randomUUID().toString();
     private String firstName;
 
-//    private String lastName;
+    private String lastName;
 
 //    public Student() {
 //    }
 
-//    public Student(String firstName) {
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//    }
+    public Student(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
     public String getId() {
         return id;
     }
@@ -28,12 +28,12 @@ public class Student {
         this.firstName = firstName;
     }
 
-    //    public String getLastName() {
-//        return lastName;
-//    }
-//
-//    public void setLastName(String lastName) {
-//        this.lastName = lastName;
-//    }
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
 }

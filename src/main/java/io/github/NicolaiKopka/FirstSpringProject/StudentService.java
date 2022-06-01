@@ -6,18 +6,21 @@ import java.util.*;
 
 @Service
 public class StudentService {
-    StudentRepository studentRepository;
+    private final StudentRepository studentRepository;
     public StudentService(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
     public Collection<Student> getStudentList() {
-        return studentRepository.getAllStudents();
+        return studentRepository.findAll();
     }
     public void addStudent(Student student) {
-        studentRepository.addStudent(student);
+        studentRepository.save(student);
     }
     public Optional<Student> getStudent(String id) {
-        return studentRepository.getStudent(id);
+        return studentRepository.findById(id);
+    }
+    public void deleteStudent(String id) {
+        studentRepository.deleteStudent(id);
     }
 
 }
