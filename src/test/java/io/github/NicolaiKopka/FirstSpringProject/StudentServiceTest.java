@@ -16,7 +16,7 @@ class StudentServiceTest {
         Student student = new Student("Anjali", "Sharma");
         StudentRepository studentRepository = Mockito.mock(StudentRepository.class);
         StudentService studentService = new StudentService(studentRepository);
-        Mockito.when(studentService.getStudent("1112"))
+        Mockito.when(studentRepository.findById("1112"))
                 .thenReturn(Optional.of(student));
 
         Optional<Student> actual = studentService.getStudent("1112");
@@ -29,7 +29,7 @@ class StudentServiceTest {
         Student student = new Student("Anjali", "Sharma");
         StudentRepository studentRepository = Mockito.mock(StudentRepository.class);
         StudentService studentService = new StudentService(studentRepository);
-        Mockito.when(studentService.getStudent("1112"))
+        Mockito.when(studentRepository.findById("1112"))
                 .thenReturn(Optional.of(student));
 
         Optional<Student> actual = studentService.getStudent("unknown");
@@ -42,7 +42,7 @@ class StudentServiceTest {
         Student student2 = new Student("Rohit", "Kapoor");
         StudentRepository studentRepository = Mockito.mock(StudentRepository.class);
         StudentService studentService = new StudentService(studentRepository);
-        Mockito.when(studentService.getStudentList())
+        Mockito.when(studentRepository.findAll())
                 .thenReturn(List.of(student1, student2));
 
         Collection<Student> actual = studentService.getStudentList();

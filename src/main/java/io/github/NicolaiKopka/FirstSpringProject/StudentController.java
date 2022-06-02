@@ -1,5 +1,6 @@
 package io.github.NicolaiKopka.FirstSpringProject;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,11 +13,9 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("students")
+@RequiredArgsConstructor
 public class StudentController {
-    StudentService studentService;
-    public StudentController(StudentService studentService) {
-        this.studentService = studentService;
-    }
+    private final StudentService studentService;
     @GetMapping("{id}")
     public ResponseEntity<Student> getStudents(@PathVariable String id) {
         return ResponseEntity.of(studentService.getStudent(id));
